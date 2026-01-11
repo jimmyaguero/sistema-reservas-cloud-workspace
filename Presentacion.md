@@ -1,64 +1,70 @@
-# Presentacion
+---
+marp: true
+theme: default
+class: invert
+paginate: true
+header: 'Sistema de Reservas Cloud Native - 2026'
+footer: 'Jimmy Aguero - Arquitectura Cloud'
+---
+
 # Sistema de Reservas Cloud Native
-
-## 1. Resumen del Proyecto
-
-Esta solucion optimiza la gestion de espacios corporativos (Oficinas, Salas y Cafeteria) mediante una arquitectura de microservicios integrada profundamente con Google Workspace.
+### Integración Estratégica con Google Workspace
 
 ---
 
-## 2. Diagrama de Arquitectura Conceptual
+## 1. Arquitectura del Sistema
 
-A continuacion se presenta la interaccion entre los componentes Cloud y los servicios de Google:
+A continuación, se detalla la estructura de microservicios y el flujo de datos:
 
-```mermaid
-graph LR
-    User[Usuario] --> Web[Interfaz Web]
-    Web --> API[API Gateway]
-    
-    subgraph "Nucleo de la Solucion"
-    API --> Micro[Microservicio Reservas]
-    Micro --> DB[(Cloud SQL)]
-    end
-    
-    subgraph "Ecosistema Google"
-    Micro --> GCal[Google Calendar]
-    API --> GAuth[Google Identity]
-    end
-```
+![w:900 center](./arquitectura.png)
+---
+ 
+ 
+
+## 2. El Desafío Técnico
+- **Necesidad:** Gestionar espacios (salas, oficinas, cafetería) de forma eficiente.
+- **Requerimientos:** Alta disponibilidad, seguridad de datos y escalabilidad automática.
+- **Silos de Información:** Evitar que el sistema sea una isla separada de las herramientas corporativas.
 
 ---
 
-## 3. Desafios Enfrentados y Soluciones
-
-### Desafio A: Latencia en consultas de directorio
-Problema: Las llamadas constantes a la API de Google para validar departamentos de usuarios ralentizaban el sistema. Solucion: Implementacion de una capa de persistencia intermedia en Cloud SQL que sincroniza los perfiles de usuario, reduciendo el trafico externo y mejorando el tiempo de respuesta en un 40%.
-
-### Desafio B: Cumplimiento de politicas de uso
-Problema: Google Calendar no permite restringir el tiempo de uso por tipo de recurso (ej. maximo 45 min en cafeteria). Solucion: Creacion de un motor de reglas en el Microservicio de Reservas que valida la duracion antes de confirmar el evento en el calendario de Google.
+## 3. Arquitectura de Microservicios
+- **Desacoplamiento:** Servicios independientes para Reservas, Auth e Integración.
+- **API Gateway:** Punto de entrada único para seguridad y enrutamiento.
+- **Docker:** Contenedores para asegurar la portabilidad entre entornos.
 
 ---
 
-## 4. Logros Alcanzados
+## 4. Integración con Google Workspace
+> "No reinventamos la rueda, la optimizamos."
 
-Escalabilidad Comprobada: El sistema supero pruebas de carga con 500 usuarios concurrentes, manteniendo latencias inferiores a 200ms mediante politicas de auto-scaling.
-
-Seguridad Centralizada: Eliminacion del almacenamiento local de credenciales, delegando el 100% de la autenticacion a Google Identity Services.
-
-Eficiencia en Recursos: Automatizacion total del bloqueo de salas, eliminando los conflictos de agenda y las reservas manuales.
-
----
-
-## 5. Conclusion
-
-El proyecto demuestra que la integracion de servicios Cloud administrados con herramientas de productividad líderes (Workspace) reduce los costos de desarrollo y garantiza una arquitectura robusta, segura y altamente escalable para la empresa moderna.
+- **Identidad:** Delegación total a Google Identity (SSO/OAuth 2.0).
+- **Sincronización:** Google Calendar API como motor de agenda en tiempo real.
+- **Capa de Negocio:** Lógica personalizada para límites de tiempo (ej. 45 min en cafetería).
 
 ---
 
-Presentacion de cierre de proyecto - Arquitectura Cloud 2026
-
+## 5. Desafíos y Soluciones
+- **Desafío:** Latencia en llamadas a APIs externas.
+- **Solución:** Implementación de persistencia híbrida con **Google Cloud SQL** para caché de perfiles y reglas locales.
+- **Resultado:** Reducción del 40% en tiempos de respuesta.
 
 ---
 
+## 6. Pruebas de Carga y Rendimiento
+- **Simulación:** 500 usuarios concurrentes (JMeter).
+- **Latencia promedio:** 185ms.
+- **Escalabilidad:** Auto-scaling activado exitosamente ante picos de demanda.
+- **Tasa de éxito:** 99.8% en transacciones.
 
+---
 
+## 7. Conclusiones
+- **Eficiencia:** 30% de ahorro en tiempo de desarrollo mediante APIs administradas.
+- **Seguridad:** Cero almacenamiento local de credenciales sensibles.
+- **Futuro:** Preparado para integración con sensores IoT.
+
+---
+
+# ¡Gracias!
+### ¿Consultas técnicas?
