@@ -24,60 +24,64 @@ footer: 'Jimmy Aguero - Arquitectura Cloud'
 ## 2. Supuestos de Diseño
 Para robustecer la arquitectura, se establecieron los siguientes supuestos:
 
-- **Ecosistema Existente:** Se asume que la organización utiliza **Google Workspace** como herramienta principal de colaboración.
-- **Seguridad:** Se asume una política de *Zero Trust*, delegando la autenticación a un proveedor de identidad (IdP) experto.
-- **Carga de Trabajo:** Se proyecta un crecimiento del 200% en el uso de espacios físicos post-pandemia, requiriendo escalabilidad elástica.
-- **Conectividad:** Se asume disponibilidad de red constante para la sincronización con APIs externas.
+- **Ecosistema Existente:** La organización utiliza **Google Workspace** como herramienta principal de colaboración.
+- **Seguridad:** Política de *Zero Trust*, delegando la autenticación a un proveedor de identidad (IdP) experto.
+- **Carga de Trabajo:** Proyección de crecimiento elástico para soportar picos de demanda post-pandemia.
+- **Conectividad:** Disponibilidad de red constante para sincronización vía API.
 
 ---
 
 ## 3. Evolución hacia la Solución
-Para cumplir con lo esperado, el proyecto evolucionó hacia una **Arquitectura de Microservicios**:
+El proyecto evolucionó hacia una **Arquitectura de Microservicios** para cumplir con la escalabilidad:
 
 - **Desacoplamiento:** Servicios independientes para Reservas, Auth e Integración.
-- **API Gateway:** Implementado como punto de entrada único para centralizar la seguridad.
-- **Docker:** Contenedores para garantizar que el sistema funcione igual en desarrollo y producción.
+- **API Gateway:** Punto de entrada único para centralizar seguridad y ruteo.
+- **Docker:** Contenedores para garantizar la portabilidad entre entornos.
 
 ---
 
 ## 4. Arquitectura del Sistema
 
-La respuesta técnica a los requerimientos y supuestos se resume aquí:
+Respuesta técnica a los requerimientos y supuestos:
 
 ![w:850 center](./architecture/Diagrama%20General%20Arquitectura.png)
 
 ---
 
 ## 5. Integración Estratégica: Google Workspace
-> "Cumpliendo la expectativa de eficiencia: No reinventamos la rueda, la optimizamos."
+> "Eficiencia operativa: Optimizamos la infraestructura existente."
 
-- **Identidad:** Uso de **Google Identity (SSO/OAuth 2.0)** para máxima seguridad.
+- **Identidad:** **Google Identity (SSO/OAuth 2.0)** para gestión de accesos.
 - **Sincronización:** **Google Calendar API** como motor de agenda en tiempo real.
-- **Lógica de Negocio:** Capa personalizada para reglas críticas (ej. límites de 45 min en cafetería).
+- **Lógica de Negocio:** Reglas personalizadas (ej. cuotas de tiempo por tipo de sala).
 
 ---
 
-## 6. Superando Obstáculos Técnicos
-Durante el desarrollo, se tomaron decisiones clave para optimizar el resultado:
-
-- **Desafío:** Latencia en llamadas a APIs externas.
-- **Solución:** Implementación de **Persistencia Híbrida** con **Google Cloud SQL** para caché de perfiles y reglas locales.
-- **Resultado:** Reducción del 40% en tiempos de respuesta.
-
----
-
-## 7. Validación de Requerimientos (Pruebas)
-Se sometió el sistema a un entorno de estrés para garantizar la robustez:
+## 6. Validación de Requerimientos (Pruebas)
+Garantía de robustez mediante pruebas de estrés:
 
 - **Simulación:** 500 usuarios concurrentes (JMeter).
 - **Latencia promedio:** 185ms.
-- **Escalabilidad:** Auto-scaling activado exitosamente ante picos de demanda.
+- **Escalabilidad:** Auto-scaling validado ante picos de demanda.
 - **Tasa de éxito:** 99.8% en transacciones.
 
 ---
 
-## 8. Conclusiones y Logros
-El proyecto no solo cumple, sino que optimiza la propuesta inicial:
+## 7. Acceso al Proyecto
 
-- **Eficiencia:** 30% de ahorro en desarrollo mediante APIs administradas.
-- **Seguridad:** Cero almacenamiento local de cred
+Toda la documentación técnica, código fuente y archivos de configuración están disponibles en el repositorio oficial:
+
+### **Repositorio GitHub:**
+[https://github.com/jimmyaguero/sistema-reservas-cloud-workspace](https://github.com/jimmyaguero/sistema-reservas-cloud-workspace)
+
+---
+
+## 8. Conclusiones ✨
+- **Eficiencia:** Reducción de tiempos de desarrollo mediante servicios administrados.
+- **Seguridad:** Arquitectura robusta sin almacenamiento local de datos sensibles.
+- **Impacto:** Sistema alineado 100% con la transformación digital corporativa.
+
+---
+
+# ¡Gracias!
+### ¿Consultas sobre el repositorio o la arquitectura?
