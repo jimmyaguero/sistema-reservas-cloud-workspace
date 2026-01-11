@@ -1,6 +1,6 @@
 # Sistema de Reservas Corporativas (Cloud Native)
 
-Este proyecto es una solución de arquitectura diseñada para la gestión eficiente de recursos físicos (Salas de reuniones, Oficinas y Cafetería), aprovechando la infraestructura de **Google Workspace**.
+Este proyecto es una solución de arquitectura diseñada para la gestión eficiente de recursos físicos (Salas de reuniones, Oficinas y Cafetería). Se utiliza el supuesto de que la empresa que ha solicitado esta solución, cuenta con Google Workspace, por lo tanto se pone énfasis en el aprovechamiento de la infraestructura de **Google Workspace**.
 
 ## Arquitectura del Sistema
 - **Frontend:** WebApp interactiva (HTML5/JS).
