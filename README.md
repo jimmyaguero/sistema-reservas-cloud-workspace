@@ -15,7 +15,7 @@ Este proyecto es una solución de arquitectura diseñada para la gestión eficie
 
 ---
 *Proyecto desarrollado para el portafolio de Arquitectura Cloud - 2026*
-
+mermaid
 graph TD
     subgraph Cliente
     A[WebApp Prototipo HTML/JS]
