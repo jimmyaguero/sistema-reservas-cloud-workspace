@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     subgraph Cliente
     A[WebApp Prototipo HTML/JS]
@@ -27,3 +28,4 @@ graph TD
     C -->|6. Procesa| D
     D -->|7. Bloquea Recurso: Sala/Oficina/Cafetería| F
     D -->|8. Sincroniza Directorio| G
+```
