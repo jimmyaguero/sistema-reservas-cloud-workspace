@@ -46,3 +46,12 @@ graph TD
     D -->|7. Bloquea Recurso: Sala/Oficina/Cafetería| F
     D -->|8. Sincroniza Directorio| G
 ```
+
+## Despliegue Local
+Para ejecutar este proyecto en un entorno de desarrollo:
+1. Clonar el repositorio: `git clone [URL_DEL_REPO]`
+2. Instalar dependencias: `npm install` (o el comando del lenguaje usado).
+3. Configurar variables de entorno (`.env`) con las credenciales de Google Cloud Console.
+4. Levantar los servicios con Docker: `docker-compose up --build`
+
+   
