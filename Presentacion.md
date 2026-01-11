@@ -16,7 +16,7 @@ footer: 'Jimmy Aguero - Arquitectura Cloud'
 
 A continuación, se detalla la estructura de microservicios y el flujo de datos:
 
-![w:900 center](./arquitecture/Diagrama General Arquitectura-2026-01-11-144234.png)
+![w:900 center](./architecture/Diagrama General Arquitectura-2026-01-11-144234.png)
 ---
  
  
